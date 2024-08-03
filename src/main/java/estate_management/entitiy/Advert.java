@@ -44,7 +44,7 @@ public class Advert {
     @NotNull(message = "Status cannot be null, default 0")
     private Integer status = 0;
 
-    // Have an issue here see notion notices for clarification.
+    // Have an issue here, documentation given type should be boolean but default value shoudl be 0.
     @Column(name = "built_in", nullable = false)
     @NotNull()
     private boolean builtIn;
