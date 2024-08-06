@@ -1,5 +1,7 @@
 package estate_management.entity.concretes.business;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -7,7 +9,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
-@Entity
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +16,8 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Setter
+
+@Entity
 public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +28,9 @@ public class Log {
     @Size(max = 30)
     private String name;
 
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name="log_id")
+    @JsonIgnore
     private User user;;
 
     @ManyToOne
@@ -33,6 +38,7 @@ public class Log {
 
     @Column(name = "created_at", nullable = false)
     @NotNull(message = "Creation time cannot be null")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private LocalDateTime createdAt;
 
     @PrePersist

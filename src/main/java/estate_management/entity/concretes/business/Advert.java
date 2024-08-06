@@ -1,20 +1,27 @@
 package estate_management.entity.concretes.business;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jdk.jfr.Category;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.math.BigDecimal;
 import java.text.Normalizer;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder(toBuilder = true)
+@Getter
+@Setter
+
 @Entity
+@Table(name = "Advert")
 public class Advert {
 
     @Id
@@ -26,7 +33,7 @@ public class Advert {
     @Size(min = 5, max = 150, message = "Title must be between 5 and 150 characters")
     private String title;
 
-    @Column(name = "desc",length = 300)
+    @Column(name = "desc", length = 300)
     @Size(max = 300, message = "Description can contain maximum 300 characters")
     private String desc;
 
@@ -36,9 +43,11 @@ public class Advert {
     @Size(min = 5, max = 200)
     private String slug;
 
+
+    // burasi double mi olacak yoksa bigDecimal mi
     @Column(name = "price", nullable = false)
     @NotNull(message = "Price cannot be null")
-    private BigDecimal price;
+    private Double price;
 
     @Column(name = "status", nullable = false)
     @NotNull(message = "Status cannot be null, default 0")
@@ -47,11 +56,11 @@ public class Advert {
     // Have an issue here, documentation given type should be boolean but default value shoudl be 0.
     @Column(name = "built_in", nullable = false)
     @NotNull()
-    private boolean builtIn;
+    private Boolean builtIn = false;
 
     @Column(name = "is_active", nullable = false)
     @NotNull(message = "Can not be null")
-    private boolean isActive = true;
+    private Boolean isActive = true;
 
     @Column(name = "view_count", nullable = false)
     @NotNull
@@ -72,40 +81,57 @@ public class Advert {
     private LocalDateTime updatedAt;
 
 
-
     // FOREIGN KEY FIELDS
     @ManyToOne
     @NotNull
     @JoinColumn(name = "advert_type_id", nullable = false)
+    @JsonIgnore
     private AdvertType advertType;
 
     @ManyToOne
     @NotNull
     @JoinColumn(name = "country_id", nullable = false)
+    @JsonIgnore
     private Country country;
 
     @ManyToOne
     @NotNull
     @JoinColumn(name = "city_id", nullable = false)
+    @JsonIgnore
     private City city;
 
     @ManyToOne
     @NotNull
     @JoinColumn(name = "district_id", nullable = false)
+    @JsonIgnore
     private District district;
 
     @ManyToOne
     @NotNull
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @NotNull
     @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnore
     private Category category;
 
+    @OneToMany(mappedBy ="advert" )
+    private List<CategoryPropertyValue> categoryPropertyValue;
+
+    @ManyToMany(mappedBy ="advert")
+    private List<Favorite> favorites;
+
+    @OneToMany(mappedBy = "advert")
+    private Set<TourRequest> tourRequest;
 
 
+
+    @OneToMany(mappedBy ="advert")
+    @JsonIgnore
+    private List<Image> image;
 
 
     // ------ METHODS --------
