@@ -1,17 +1,14 @@
 package domain.category;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import estate_management.entity.concretes.business.CategoryPropertyValue;
+// TODO is this import needed? it is unused but if not commented out  -> error at compile time
+// import estate_management.entity.concretes.business.CategoryPropertyValue;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+        import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)

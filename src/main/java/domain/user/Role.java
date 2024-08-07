@@ -2,13 +2,11 @@ package domain.user;
 
 import javax.persistence.*;
 
-import estate_management.entity.concretes.business.RoleName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
