@@ -1,5 +1,6 @@
 package domain.administrative;
 
+
 import lombok.*;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
@@ -11,8 +12,8 @@ import javax.validation.constraints.Size;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Builder
+
+@Builder(toBuilder = true)
 @Getter
 @Setter
 

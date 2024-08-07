@@ -1,5 +1,6 @@
 package domain.user;
 
+
 //TODO is it entity since there is not PK in the documentation
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Builder(toBuilder = true)
 
 @Entity
+//TODO why it says cannot resolve table user_roles and column user_roles_id
 @Table(name = "user_roles")
 public class UserRole {
     @Id

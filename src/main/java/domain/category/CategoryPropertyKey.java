@@ -1,7 +1,6 @@
 package domain.category;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import estate_management.entity.concretes.business.CategoryPropertyValue;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,15 +31,13 @@ public class CategoryPropertyKey {
     private String name;
 
     @Column(name = "built_in")
-    private Boolean built_in=false;
+    private Boolean built_in = false;
 
 
     @Column(name = "category_id")
     private int categoryId;
-
-    //TODO is it necessary or not because of categoryPropertyKeyId in the value
-//    @OneToMany (mappedBy = "categoryPropertyKey")
-//    private List<CategoryPropertyValue> categoryPropertyValue;
-
-
 }
+
+
+
+

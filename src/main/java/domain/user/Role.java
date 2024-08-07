@@ -2,20 +2,19 @@ package domain.user;
 
 import javax.persistence.*;
 
-import estate_management.entity.concretes.business.RoleName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Getter
+@Setter
+@Builder(toBuilder = true)
+
+@Entity
 @Table(name="roles")
 
 public class Role {

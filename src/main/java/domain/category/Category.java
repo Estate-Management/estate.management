@@ -1,7 +1,6 @@
 package domain.category;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import domain.TourRequest;
 import lombok.*;
 
