@@ -1,5 +1,4 @@
 package domain.administrative;
-
 import lombok.*;
 
 import javax.persistence.*;

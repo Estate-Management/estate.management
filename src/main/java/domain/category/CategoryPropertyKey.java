@@ -1,14 +1,16 @@
 package domain.category;
 
-// TODO is this import needed? it is unused but if not commented out  -> error at compile time
-// import estate_management.entity.concretes.business.CategoryPropertyValue;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
-        import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
@@ -29,15 +31,13 @@ public class CategoryPropertyKey {
     private String name;
 
     @Column(name = "built_in")
-    private Boolean built_in=false;
+    private Boolean built_in = false;
 
 
     @Column(name = "category_id")
     private int categoryId;
-
-    //TODO is it necessary or not because of categoryPropertyKeyId in the value
-//    @OneToMany (mappedBy = "categoryPropertyKey")
-//    private List<CategoryPropertyValue> categoryPropertyValue;
-
-
 }
+
+
+
+

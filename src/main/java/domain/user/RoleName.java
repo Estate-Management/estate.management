@@ -1,12 +1,22 @@
 package domain.user;
 
+import lombok.Getter;
+
+
+@Getter
+
+
 public enum RoleName {
 
-    //buraya name eklenecek mi string ifade dusun
 
-    //TODO how we can add admin, manager as a String
-    ADMIN,
-    MANAGER,
-    CUSTOMER
+    ADMIN("Admin"),
+    MANAGER("Manager"),
+    CUSTOMER("Customer");
+
+    public final String name;
+    RoleName(String name) {
+        this.name = name;
+    }
+
 }
 

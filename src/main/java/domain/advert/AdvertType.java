@@ -29,4 +29,3 @@ public class AdvertType {
     private Boolean built_in = false;
 
 }
-
