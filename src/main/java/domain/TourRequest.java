@@ -2,7 +2,7 @@ package domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import estate_management.entity.concretes.business.Category;
+import domain.category.Category;
 import lombok.*;
 
 import javax.persistence.*;
