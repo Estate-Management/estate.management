@@ -6,4 +6,5 @@ public class class1 {
     int z=3;
     //Git remote dan local e cekme
     //Local repository den remote a gonderme
+    //fdfdsf
 }
